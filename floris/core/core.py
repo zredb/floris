@@ -29,6 +29,7 @@ from floris.core import (
     turbopark_solver,
     WakeModelManager,
 )
+from floris.core import grid
 from floris.type_dec import NDArrayFloat
 from floris.utilities import (
     load_yaml,
@@ -127,7 +128,6 @@ class Core(BaseClass):
                 "[turbine_grid, turbine_cubature_grid, flow_field_grid, flow_field_planar_grid], "
                 f"but type given was {self.solver['type']}"
             )
-
         if isinstance(self.grid, (TurbineGrid, TurbineCubatureGrid)):
             self.farm.expand_farm_properties(
                 self.flow_field.n_findex,
